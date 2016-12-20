@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<script src="./js/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<link href="./css/bootstrap.min.css" rel="stylesheet">
+<link href="./css/dome.css" rel="stylesheet">
+<link href="./css/f.css" rel="stylesheet">
+<link href="./css/ui-grid.css" rel="stylesheet">
+<script src="./js/Chart.min.js"></script>
+<script src="./js/angular-chart.min.js"></script>
+<script src="./js/dome-controller.js"></script>
+<script src="./js/ui-grid.js"></script>
+<script src="./js/moment.js"></script>
+<script src="./js/daterangepicker.js"></script>
+<script src="./js/angular-daterangepicker.js"></script>
+
+<link rel="stylesheet" href="./css/daterangepicker.css"/>
+<body ng-app="myApp">
+    <div class="main-header">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                       <label class="welcome-text"> Welcome Nikhil</label>
+    </nav>  
+    </div>    
+    <div class="col-md-1" style="float:left">
+            <ul class="nav navbar-nav side-nav">
+                <li class="active"><a href="#/" data-target-id="dba"><i class="fa fa-fw fa-dashboard"></i>DBA</a></li>
+        <!--        <li class="active"><a href="#/jira" data-target-id="jira"><i class="fa fa-list-alt fa-fw"></i>JIRA</a></li>
+                <li class="active"><a href="#/zendesk" data-target-id="zendesk"><i class="fa fa-file-o fa-fw"></i>Zendesk</a></li>
+                <li class="active"><a href="#/nagios" data-target-id="nagios"><i class="fa fa-file-o fa-fw"></i>Nagios</a></li>
+                <li class="active"><a href="#/dba" data-target-id="dba"><i class="fa fa-file-o fa-fw"></i>DBAs</a></li> -->
+            </ul>
+    </div>
+
+<div ng-view class="main-ng-view"></div>
+
+</body>
+<style>
+body{margin-top:20px;}
+.fa-fw {width: 2em;}
+
+.main-ng-view{
+    float: left;
+    width: 90%;
+}
+.main-header{
+    height: 45px;
+}
+.side-nav {
+    position: fixed;
+    top: 51px;
+    left: 225px;
+    width: 113px;;
+    margin-left: -225px;
+    border: none;
+    border-radius: 0;
+    overflow-y: auto;
+    background-color: #4e4e4e;;
+    bottom: 0;
+    overflow-x: hidden;
+    padding-bottom: 40px;
+}
+a {
+    color: #ccc6c6;;
+    text-decoration: none;
+}
+.navbar-inverse {
+    background-color: #4e4e4e;
+    border-color: #3c3c3c;
+}
+.welcome-text{
+    float: right;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #c3c3c3;
+    font-weight: 100;
+    font-size: 16px;
+    padding: 10px;
+}
+.active{
+   width: 100%; 
+}    
+</style>
+</html>
+

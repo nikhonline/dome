@@ -1,0 +1,99 @@
+
+<html ng-app="myApp">
+    <body>
+        <div class="container" ng-controller="jiraCtrl" ng-init="tab=1">
+            <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> JIRA
+                            </li>
+           </ol>
+            <form>
+                <label class="radio-inline" > <input type="radio" name="metricsRadio" ng-click="tab=1" checked="checked"> CSO Tickets Snapshot </label> &nbsp;&nbsp;
+                <label class="radio-inline" > <input type="radio" name="metricsRadio" ng-click="tab=2"> CSO Tickets to Others </label> &nbsp;&nbsp;
+            </form>
+            </br>
+            <div>
+            <h5 style="float:left">Date &nbsp;&nbsp;</h5><input date-range-picker class="form-control date-picker" type="text" ng-model="datePicker" />
+            </div>
+            </br>
+            <!--CSO Tickets Snapshot -->
+            <div ng-show="tab==1"> 
+            <table class="table">
+                <thead class="thead-inverse">
+                <tr>
+                    <th>Teams</th>
+                    <th>Creator Name</th>
+                    <th>Ticket Number</th>
+                    <th>Status</th>
+                    <th>Assignee</th>
+                    <th>Create Date</th>
+                    <th>Update Date</th>
+                    <th>Date Refresh Time</th>
+                </tr>
+                <tr ng-repeat="x in names | orderBy : 'name'">
+                        <td>{{ x.name }}</td>
+                        <td>{{ x.creatorName }}</td>
+                        <td>{{ x.ticketNumber }}</td>
+                        <td>{{ x.status }}</td>
+                        <td>{{ x.assignee }}</td>
+                        <td>{{ x.createdate }}</td>
+                        <td>{{ x.updatedate }}</td>
+                        <td>{{ x.refreshdate }}</td>
+                        </tr>
+                </table> 
+            </div>
+            
+            <!--CSO Tickets to Others  -->
+            <div ng-show="tab==2"> 
+            <table class="table">
+                <thead class="thead-inverse">
+                <tr>
+                    <th>Teams</th>
+                    <th>Creator Name</th>
+                    <th>Ticket Number</th>
+                    <th>Status</th>
+                    <th>Assignee</th>
+                    <th>Create Date</th>
+                    <th>Update Date</th>
+                    <th>Date Refresh Time</th>
+                </tr>
+                <tr ng-repeat="x in names | orderBy : 'name'">
+                        <td>{{ x.name }}</td>
+                        <td>{{ x.creatorName }}</td>
+                        <td>{{ x.ticketNumber }}</td>
+                        <td>{{ x.status }}</td>
+                        <td>{{ x.assignee }}</td>
+                        <td>{{ x.createdate }}</td>
+                        <td>{{ x.updatedate }}</td>
+                        <td>{{ x.refreshdate }}</td>
+                        </tr>
+                </table> 
+            </div>
+        </div>
+        
+<style>
+/*
+table, th   {
+    border: 1px solid white;
+    border-collapse: collapse;
+    padding: 5px;
+    color: #fbfbfb;
+    font-family: sans-serif;
+}
+table , td  {
+    border: 1px solid white;
+    border-collapse: collapse;
+    padding: 5px;
+    color: #000;
+    font-family: sans-serif;
+}
+table tr:nth-child(odd) {
+  background-color: #676767;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+*/
+</style>
+    </body>
+</html>

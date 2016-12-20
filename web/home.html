@@ -1,0 +1,170 @@
+<html ng-app="myApp">
+    <body>
+   <div ng-controller="HomeCtrl" class="jira_pie_chart">
+       <div id="page-wrapper" >
+       <div class="row">
+           <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Dashboardss
+                            </li>
+                            
+           </ol>
+           
+           <!-- JIRA -->
+           <div class="col-lg-4 col-md-6" style="margin-left:10%">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div><img src="./images/jira.png" style="width:50%"></div>
+                                    </div>
+                                </div>
+                                            <canvas id="doughnut" class="chart chart-doughnut" chart-data="jira_piechart_data"
+                                                    chart-labels="jira_piechart_labels" chart-options="options"></canvas>
+                            </div>
+                                <div class="panel-footer">
+                                    <a href="#/jira" data-target-id="jira">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                        </div>
+            </div>
+           
+           
+           <!--Zendesk  -->
+           
+           <div class="col-lg-4 col-md-6" style="margin-left:10%">
+                <a href="#/zendesk" data-target-id="zendesk">
+                        <div class="panel panel-primary"">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div><img src="./images/zendesk.png" style="width:70%"></div>
+                                    </div>
+                                </div>
+                                            <canvas id="doughnut" class="chart chart-doughnut" chart-data="zendesk_piechart_data"
+                                                    chart-labels="zendesk_piechart_labels" chart-options="options"></canvas>
+                            </div>
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                        </div>
+            </div>
+           
+           <!--Nagios  -->
+           
+           <div class="col-lg-4 col-md-6" style="margin-left:10%">
+                <a href="#/zendesk" data-target-id="zendesk">
+                        <div class="panel panel-primary"">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div><img src="./images/nagios.png" style="width:70%"></div>
+                                    </div>
+                                </div>
+                                            <canvas id="doughnut" class="chart chart-doughnut" chart-data="zendesk_piechart_data"
+                                                    chart-labels="zendesk_piechart_labels" chart-options="options"></canvas>
+                            </div>
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                        </div>
+            </div>
+           
+           <!--Go Anywhere  -->
+           
+           <div class="col-lg-4 col-md-6" style="margin-left:10%">
+                <a href="#/zendesk" data-target-id="zendesk">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div><img src="./images/goanywhere.png" style="width:70%"></div>
+                                    </div>
+                                </div>
+                                            <canvas id="doughnut" class="chart chart-doughnut" chart-data="zendesk_piechart_data"
+                                                    chart-labels="zendesk_piechart_labels" chart-options="options"></canvas>
+                            </div>
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                        </div>
+            </div>
+           <!--Zendesk 2 -->
+           
+           <div ng-hide="1==1" class="col-lg-10 col-md-10" style="margin-left:10%">
+               <a href="#/zendesk" data-target-id="zendesk">
+           <div class="col-xs-14 text-left" style="color:#585555;padding-top:50px">
+                                        <div>Zendesk Metrics Ticket Types</div>
+            </div>   
+                        <div class="panel panel-grey">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                    </div>
+                                    
+                                </div>
+                                            <canvas id="bar" class="chart chart-bar" chart-data="zendesk_barchart_data"
+                                                    chart-labels="zendesk_barchart_labels" char-series="zendesk_barchart_series"></canvas>
+                            </div>
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                        </div>
+            </div>
+ 
+           </div>
+   </div>   
+   </div> 
+        <style>
+            .jira_pie_chart{
+               // width:1000px;
+            }
+            #page-wrapper {
+                padding: 35px;
+            }
+            .panel-green {
+                border-color: #5cb85c;
+            }
+            .panel-green > .panel-heading {
+                    border-color: #5cb85c;
+                    color: #fff;
+                    background-color: #5cb85c;
+            }
+            .panel-grey > .panel-heading {
+                    border-color: #cfffcf;
+                    color: #fff;
+                    background-color: #f7fbf7;
+            }
+            .panel-footer{
+                    background-color: #4e4e4e;
+            }
+            .panel-primary {
+                    border-color: #cecece;
+            }
+            .panel-primary>.panel-heading{
+                background-color:#fffdfd;
+            }
+            .col-xs-9 {
+    color: #565656;
+}
+        </style>     
+</body>
+</html>
