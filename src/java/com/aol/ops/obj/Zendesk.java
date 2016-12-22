@@ -10,22 +10,31 @@ package com.aol.ops.obj;
  * @author Nikhil
  */
 public class Zendesk {
-    private String legend;
-    private String value;
+    private int newTicket;
+    private int openTicket;
+    private int pendingTicket;
 
-    public String getLegend() {
-        return legend;
+    public int getNewTicket() {
+        return newTicket;
     }
 
-    public void setLegend(String legend) {
-        this.legend = legend;
+    public void setNewTicket(int newTicket) {
+        this.newTicket = newTicket;
     }
 
-    public String getValue() {
-        return value;
+    public int getOpenTicket() {
+        return openTicket;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setOpenTicket(int openTicket) {
+        this.openTicket = openTicket;
+    }
+
+    public int getPendingTicket() {
+        return pendingTicket;
+    }
+
+    public void setPendingTicket(int pendingTicket) {
+        this.pendingTicket = pendingTicket;
     }
 }

@@ -5,7 +5,7 @@
        <div class="row">
            <ol class="breadcrumb">
                             <li class="active">
-                                <i class="fa fa-dashboard"></i> Dashboardss
+                                <i class="fa fa-dashboard"></i> Dashboard
                             </li>
                             
            </ol>
@@ -21,8 +21,15 @@
                                         <div><img src="./images/jira.png" style="width:50%"></div>
                                     </div>
                                 </div>
-                                            <canvas id="doughnut" class="chart chart-doughnut" chart-data="jira_piechart_data"
-                                                    chart-labels="jira_piechart_labels" chart-options="options"></canvas>
+                                <h3 class="pull-left header-pie">CSO-UNIX</h3>
+                                            <canvas id="doughnut" class="chart chart-doughnut" chart-data="jira_unix_data"
+                                                    chart-labels="jira_unix_labels" chart-options="options"></canvas>
+                                <h3 class="pull-left header-pie">CSO-WEB</h3>
+                                                    <canvas id="doughnut" class="chart chart-doughnut" chart-data="jira_web_data"
+                                                    chart-labels="jira_web_labels" chart-options="options_no_lables"></canvas>
+                                <h3 class="pull-left header-pie">CSO-WIN</h3>
+                                                    <canvas id="doughnut" class="chart chart-doughnut" chart-data="jira_win_data"
+                                                    chart-labels="jira_win_labels" chart-options="options_no_lables"></canvas>
                             </div>
                                 <div class="panel-footer">
                                     <a href="#/jira" data-target-id="jira">
@@ -163,8 +170,13 @@
                 background-color:#fffdfd;
             }
             .col-xs-9 {
-    color: #565656;
-}
+                    color: #565656;
+            }
+            .header-pie{
+                color: #036;
+                font-weight: bolder;
+                font-size: 16px;
+            }
         </style>     
 </body>
 </html>

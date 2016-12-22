@@ -10,22 +10,33 @@ package com.aol.ops.obj;
  * @author Nikhil
  */
 public class Jira {
-    private String legend;
-    private String value;
+    private String team;
+    private String open;
+    private String wip;
 
-    public String getLegend() {
-        return legend;
+    public String getTeam() {
+        return team;
     }
 
-    public void setLegend(String legend) {
-        this.legend = legend;
+    public void setTeam(String team) {
+        this.team = team;
     }
 
-    public String getValue() {
-        return value;
+    public String getOpen() {
+        return open;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setOpen(String open) {
+        this.open = open;
     }
+
+    public String getWip() {
+        return wip;
+    }
+
+    public void setWip(String wip) {
+        this.wip = wip;
+    }
+
+    
 }

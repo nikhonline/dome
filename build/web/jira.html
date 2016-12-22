@@ -12,33 +12,32 @@
                 <label class="radio-inline" > <input type="radio" name="metricsRadio" ng-click="tab=2"> CSO Tickets to Others </label> &nbsp;&nbsp;
             </form>
             </br>
-            <div>
-            <h5 style="float:left">Date &nbsp;&nbsp;</h5><input date-range-picker class="form-control date-picker" type="text" ng-model="datePicker" />
-            </div>
             </br>
             <!--CSO Tickets Snapshot -->
             <div ng-show="tab==1"> 
             <table class="table">
-                <thead class="thead-inverse">
+                <!--<thead class="thead-inverse">-->
                 <tr>
                     <th>Teams</th>
-                    <th>Creator Name</th>
-                    <th>Ticket Number</th>
-                    <th>Status</th>
-                    <th>Assignee</th>
-                    <th>Create Date</th>
-                    <th>Update Date</th>
-                    <th>Date Refresh Time</th>
+                    <th>Overall Open</th>
+                    <th>Overall EIP</th>
+                    <th>Overall Stalled</th>
+                    <th>Oncall Open</th>
+                    <th>Oncall Stalled</th>
+                    <th>Oncall Closed</th>
+                    <th>Ticket to Others</th>
+                    <th>Update Time</th>
                 </tr>
-                <tr ng-repeat="x in names | orderBy : 'name'">
-                        <td>{{ x.name }}</td>
-                        <td>{{ x.creatorName }}</td>
-                        <td>{{ x.ticketNumber }}</td>
-                        <td>{{ x.status }}</td>
-                        <td>{{ x.assignee }}</td>
-                        <td>{{ x.createdate }}</td>
-                        <td>{{ x.updatedate }}</td>
-                        <td>{{ x.refreshdate }}</td>
+                <tr ng-repeat="x in jira_snapshot | orderBy : 'name'">
+                        <td>{{ x.team }}</td>
+                        <td>{{ x.overallOpen }}</td>
+                        <td>{{ x.overallWip }}</td>
+                        <td>{{ x.overallStalled }}</td>
+                        <td>{{ x.oncallOpen }}</td>
+                        <td>{{ x.oncallStalled }}</td>
+                        <td>{{ x.oncallClosed }}</td>
+                        <td>{{ x.ticketToOthers }}</td>
+                        <td>{{ x.updateTime }}</td>
                         </tr>
                 </table> 
             </div>
@@ -54,18 +53,16 @@
                     <th>Status</th>
                     <th>Assignee</th>
                     <th>Create Date</th>
-                    <th>Update Date</th>
-                    <th>Date Refresh Time</th>
+                    <th>Refresh Time</th>
                 </tr>
-                <tr ng-repeat="x in names | orderBy : 'name'">
-                        <td>{{ x.name }}</td>
+                <tr ng-repeat="x in jira_tickets_others | orderBy : 'name'">
+                        <td>{{ x.team }}</td>
                         <td>{{ x.creatorName }}</td>
                         <td>{{ x.ticketNumber }}</td>
                         <td>{{ x.status }}</td>
                         <td>{{ x.assignee }}</td>
-                        <td>{{ x.createdate }}</td>
-                        <td>{{ x.updatedate }}</td>
-                        <td>{{ x.refreshdate }}</td>
+                        <td>{{ x.createDate }}</td>
+                        <td>{{ x.refreshTime }}</td>
                         </tr>
                 </table> 
             </div>

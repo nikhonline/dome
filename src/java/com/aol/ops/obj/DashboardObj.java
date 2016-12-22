@@ -5,46 +5,51 @@
  */
 package com.aol.ops.obj;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Nikhil
  */
 public class DashboardObj {
-    private Jira jira;
-    private Nagios nagios;
-    private Zendesk zendesk;
-    private Goanywhere goanywhere;
+    private List<Jira> jira;
+    private List<Nagios> nagios;
+    private List<Zendesk> zendesk;
+    private List<Goanywhere> goanywhere;
 
-    public Jira getJira() {
+    public List<Jira> getJira() {
         return jira;
     }
 
-    public void setJira(Jira jira) {
+    public void setJira(List<Jira> jira) {
         this.jira = jira;
     }
 
-    public Nagios getNagios() {
+    public List<Nagios> getNagios() {
         return nagios;
     }
 
-    public void setNagios(Nagios nagios) {
+    public void setNagios(List<Nagios> nagios) {
         this.nagios = nagios;
     }
 
-    public Zendesk getZendesk() {
+    public List<Zendesk> getZendesk() {
         return zendesk;
     }
 
-    public void setZendesk(Zendesk zendesk) {
+    public void setZendesk(List<Zendesk> zendesk) {
         this.zendesk = zendesk;
     }
 
-    public Goanywhere getGoanywhere() {
+    public List<Goanywhere> getGoanywhere() {
         return goanywhere;
     }
 
-    public void setGoanywhere(Goanywhere goanywhere) {
+    public void setGoanywhere(List<Goanywhere> goanywhere) {
         this.goanywhere = goanywhere;
     }
-    
+
+
+     
 }

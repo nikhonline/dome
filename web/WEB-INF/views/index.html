@@ -19,21 +19,23 @@
 <body ng-app="myApp">
     <div class="main-header">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-                       <label class="welcome-text"> Welcome Nikhil</label>
+                       <label class="welcome-text pull-right padding-10"> Welcome User</label>
+                       <span class="pull-left" > <img src="./images/logo.png" style="width:39%"></span>
     </nav>  
-    </div>    
-    <div class="col-md-1" style="float:left">
-            <ul class="nav navbar-nav side-nav">
+  
+    <div class="col-md-1">
+            <ul class="nav navbar-nav side-nav ">
                 <li class="active"><a href="#/" data-target-id="home"><i class="fa fa-fw fa-dashboard"></i>Home</a></li>
                 <li class="active"><a href="#/jira" data-target-id="jira"><i class="fa fa-list-alt fa-fw"></i>JIRA</a></li>
                 <li class="active"><a href="#/zendesk" data-target-id="zendesk"><i class="fa fa-file-o fa-fw"></i>Zendesk</a></li>
                 <li class="active"><a href="#/nagios" data-target-id="nagios"><i class="fa fa-file-o fa-fw"></i>Nagios</a></li>
+                <!--
                 <li class="active"><a href="#/dba" data-target-id="dba"><i class="fa fa-file-o fa-fw"></i>DBAs</a></li> -->
             </ul>
+        
     </div>
-
-<div ng-view class="main-ng-view"></div>
-
+    <div ng-view class="main-ng-view"></div>
+    </div>   
 </body>
 <style>
 body{margin-top:20px;}
@@ -41,17 +43,18 @@ body{margin-top:20px;}
 
 .main-ng-view{
     float: left;
-    width: 90%;
+    width: 85%;
+    margin-left:15%;
+    margin-top: 5%;
 }
 .main-header{
     height: 45px;
 }
 .side-nav {
     position: fixed;
-    top: 51px;
-    left: 225px;
-    width: 113px;;
-    margin-left: -225px;
+    top: 50px;
+    left: 0px;
+    width: 15%;
     border: none;
     border-radius: 0;
     overflow-y: auto;
@@ -69,12 +72,10 @@ a {
     border-color: #3c3c3c;
 }
 .welcome-text{
-    float: right;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #c3c3c3;
     font-weight: 100;
     font-size: 16px;
-    padding: 10px;
 }
 .active{
    width: 100%; 

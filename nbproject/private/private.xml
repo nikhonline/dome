@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="NikhilWorkspace"/>
+        <group name="NikhilWorkspace">
+            <file>file:/D:/Nikhil%20Nb%20Workspace/dome/src/java/com/aol/dome/controller/OpsController.java</file>
+            <file>file:/D:/Nikhil%20Nb%20Workspace/dome/src/java/com/aol/ops/obj/Zendesk.java</file>
+            <file>file:/D:/Nikhil%20Nb%20Workspace/dome/web/js/dome-controller.js</file>
+            <file>file:/D:/Nikhil%20Nb%20Workspace/dome/src/java/com/aol/ops/daoimpl/JiraDaoImpl.java</file>
+            <file>file:/D:/Nikhil%20Nb%20Workspace/dome/src/java/com/aol/ops/daoimpl/DashboardDaoImpl.java</file>
+            <file>file:/D:/Nikhil%20Nb%20Workspace/dome/src/java/com/aol/ops/obj/JiraTable.java</file>
+        </group>
     </open-files>
 </project-private>

@@ -14,15 +14,62 @@ app.config(function($routeProvider) {
         templateUrl : "dba.html"
     });
 });
-
-app.controller("HomeCtrl", function ($scope) {
+ 
+  
+app.controller("HomeCtrl", function ($scope,$http) {
   //jira
-  $scope.jira_piechart_labels = ["Assigned", "Unassigned", "Closed"];
-  $scope.jira_piechart_data = [300, 500, 100];
+   $scope.jira_unix_labels=["OPEN","WIP"];
+   $scope.jira_unix_data=[];
+   $scope.jira_web_labels=["OPEN","WIP"];
+   $scope.jira_web_data=[];
+   $scope.jira_win_labels=["OPEN","WIP"];
+   $scope.jira_win_data=[];
+   $scope.zendesk_piechart_labels = ["New", "Open", "Pending"];
+   $scope.zendesk_piechart_data = [];
+   
+   var load=function(json,type,labels){
+    var arr=json[0][type];
+    for(var i=0;i<arr.length;++i){
+        if(type==="jira"){
+            if(arr[i]["team"]==="CSOUNIX"){
+                $scope.jira_unix_data.push(arr[i]["open"]);
+                $scope.jira_unix_data.push(arr[i]["wip"]);
+            }
+            if(arr[i]["team"]==="CSOWEB"){
+                $scope.jira_web_data.push(arr[i]["open"]);
+                $scope.jira_web_data.push(arr[i]["wip"]);
+            }
+            if(arr[i]["team"]==="CSOWIN"){
+                $scope.jira_win_data.push(arr[i]["open"]);
+                $scope.jira_win_data.push(arr[i]["wip"]);
+            }
+        }
+        if(type==="zendesk"){
+               $scope.zendesk_piechart_data.push(arr[i]["newTicket"]);
+               $scope.zendesk_piechart_data.push(arr[i]["openTicket"]);
+               $scope.zendesk_piechart_data.push(arr[i]["pendingTicket"]);
+        }
+    }
+}  
+
+  var jira=function(){
+      $http.get('erp.do').success(function(response){
+           load(response,"jira");
+           load(response,"zendesk");
+       });
+  };
+  
+
+  jira();
+  
+  
+  //$scope.jira_unix_labels = ["WIP", "Open"];
+  //$scope.jira_unix_data = [300, 500];
   $scope.options = {legend: {showTooltips: true,display: true}};
+  $scope.options_no_lables= {legend: {showTooltips: true,display: false}};
   //zendsek
-  $scope.zendesk_piechart_labels = ["New", "Open", "Pending","Closed"];
-  $scope.zendesk_piechart_data = [300, 500, 100,20];
+  //$scope.zendesk_piechart_labels = ["New", "Open", "Pending"];
+  //$scope.zendesk_piechart_data = [300, 500, 100,20];
   //zendsek ticket metrics
   $scope.zendesk_piechart_metrics_labels = ["New", "Open", "Pending","Closed"];
   $scope.zendesk_piechart_metrics_data = [300, 500, 100,20];
@@ -35,22 +82,27 @@ app.controller("HomeCtrl", function ($scope) {
 });
 
 app.controller("jiraCtrl",function($scope,$http){
-  $scope.datePicker = {startDate: '2016-12-01', endDate: '2016-12-11'};
-  
- $http.get("/jiraMetrics").
- success(function(data){
-     alert('successs');
- }).
- error(function(data){
+
+ $http.get("jira.do").success(function(data){
+     $scope.jira_tickets_others=data["jiraRaw"];
+     $scope.jira_snapshot=data["jiraSnapshot"];
+ }).error(function(data){
      alert('error');
  });
  
- $scope.names=JSON.parse("[{\"name\":\"CSOUNIX\",\"creatorName\":\"wclark\",\"ticketNumber\":\"ORB-648\",\"status\":\"Open\",\"assignee\":\"vmclark\",\"createdate\":\"6 30 2016 9:00\",\"updatedate\":\"6 30 2016 9:00\",\"refreshdate\":\"6 30 2016 9:00\"},{\"name\":\"CSOUNIX\",\"creatorName\":\"njhon\",\"ticketNumber\":\"CSO-2248\",\"status\":\"closed\",\"assignee\":\"vmclark\",\"createdate\":\"6 30 2016 9:00\",\"updatedate\":\"6 30 2016 9:00\",\"refreshdate\":\"6 30 2016 9:00\"}]");
 })
 
-app.controller("zendeskCtrl",function($scope){
- 
- $scope.metrics_snapshot=JSON.parse("[{\"name\":\"Datta Manikanta\",\"new\":\"1\",\"open\":\"23\",\"pending\":\"2\",\"closed\":\"12\"},{\"name\":\"Dauphin\",\"new\":\"11\",\"open\":\"22\",\"pending\":\"22\",\"closed\":\"12\"}]");
+app.controller("zendeskCtrl",function($scope,$http){
+ $scope.datePicker = {startDate: '2016-12-01', endDate: '2016-12-11'};
+ $http.get("zendesk.do").success(function(data){
+     $scope.metrics_snapshot=data["zendeskSnapshot"];
+     $scope.metrics_ticket_types=data["zendeskMetrics"];
+     $scope.erp_as_requester=data["zendeskErpRequester"];
+     console.log(JSON.stringify($scope.metrics_snapshot));
+ }).error(function(data){
+     alert('error');
+ });
+ //$scope.metrics_snapshot=JSON.parse("[{\"name\":\"Datta Manikanta\",\"new\":\"1\",\"open\":\"23\",\"pending\":\"2\",\"closed\":\"12\"},{\"name\":\"Dauphin\",\"new\":\"11\",\"open\":\"22\",\"pending\":\"22\",\"closed\":\"12\"}]");
  $scope.metrics_ticket_types=JSON.parse("[{\"name\":\"incident\",\"new\":\"1\",\"open\":\"23\",\"pending\":\"2\",\"closed\":\"12\"},{\"name\":\"problem\",\"new\":\"11\",\"open\":\"22\",\"pending\":\"22\",\"closed\":\"12\"}]");
  $scope.erp_as_requester=JSON.parse("[{\"name\":\"Datta Manikanta\",\"new\":\"1\",\"open\":\"23\",\"pending\":\"2\",\"closed\":\"12\"},{\"name\":\"Dauphin\",\"new\":\"11\",\"open\":\"22\",\"pending\":\"22\",\"closed\":\"12\"}]");
 
